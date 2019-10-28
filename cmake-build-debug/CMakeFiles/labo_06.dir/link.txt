@@ -1,0 +1,1 @@
+/usr/lib64/ccache/c++  -g   CMakeFiles/labo_06.dir/main.cpp.o  -o labo_06 
