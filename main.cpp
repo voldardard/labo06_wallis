@@ -32,35 +32,34 @@ int main() {
 
     bool retry;
     do {
+
+        int         numerator   = 2,
+                    denominator = 1;
+        int         iterCount   = 1;
+        long double wallisTotal = 1;
+        long double difference;
+
+
         cout << "Quelle precision [ 10^-0.. 10^-5] : 10^-";
         int precision_power;
         cin >>  precision_power;
         CLEAR_BUFFER;
         double PRECISION = pow(10, -precision_power);
 
-        cout << left << setw(WIDTH_COL1)      << "No"
-             << setw(WIDTH_COL2 + WIDTH_COL3) << "Terme"
-             << setw(WIDTH_COL4)              << "Pi/2"
-             << right << setw(WIDTH_COL5)     << "Ecart"
+        cout << setw(WIDTH_COL1)                    << "No"
+             << setw(WIDTH_COL2 + WIDTH_COL3)   << "Terme"
+             << setw(WIDTH_COL4)                    << "Pi/2"
+             << setw(WIDTH_COL5)                    << "Ecart"
              << endl;
 
-        int numerator = 2, denominator = 1;
-        int iterCount = 0;
-        long double difference;
-        long double wallisTotal = 1;
 
-        do {
+        do{
 
+            long double divide      =   double(numerator) / double(denominator);
+            long double tempWallis  =   wallisTotal;
+                        wallisTotal =   divide * wallisTotal;
+                        difference  =   abs(wallisTotal - tempWallis);
 
-            long double tempTotal = double(numerator) / denominator;
-            wallisTotal = tempTotal * wallisTotal;
-            difference = wallisTotal - tempTotal;
-
-            if ( numerator > denominator ) {
-                denominator += 2;
-            } else {
-                numerator += 2;
-            }
 
             //cout << "ecart:" << difference << " Total:" << wallisTotal << endl;
 
@@ -69,17 +68,26 @@ int main() {
                  << setw(WIDTH_COL2)              << numerator << "/"
                  << setw(WIDTH_COL3)              << denominator
                  << fixed
-                 << setprecision(precision_power)
+                 << setprecision(5)
                  << setw(WIDTH_COL4)              << wallisTotal
                  << setprecision(5)
                  << setw(WIDTH_COL5)              << difference
                  << endl;
 
+            if ( numerator > denominator ) {
+                denominator += 2;
+            } else {
+                numerator   += 2;
+            }
+
             ++iterCount;
-        } while ( abs(difference) < PRECISION );
+        }while (difference > PRECISION);
+        //while (iterCount < 16);
+
+
 
         cout << "Approx de Pi / 2 : " << wallisTotal << endl;
-        cout << "Nbre de termes   : " << iterCount <<endl;
+        cout << "Nbre de termes   : " << --iterCount <<endl;
 
 
         char retry_input;

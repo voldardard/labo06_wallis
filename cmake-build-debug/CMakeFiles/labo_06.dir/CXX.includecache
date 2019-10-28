@@ -9,4 +9,12 @@
 /home/mbrugger/CLionProjects/labo_06/main.cpp
 iostream
 -
+iomanip
+-
+limits
+-
+cstdlib
+-
+cmath
+-
 
