@@ -1,7 +1,7 @@
 /*
 -----------------------------------------------------------------------------------
 Laboratoire : Labo_06
-Fichier     :
+Fichier     : labo_06_brugger_mathias_gallay_david.cpp
 Auteur(s)   : Mathias Brugger et David Gallay
 Date        : 28.10.2019
 
@@ -20,8 +20,8 @@ Compilateur : MinGW-g++ 6.3.0
 #include <cmath>
 using namespace std;
 
-#define CLEAR_BUFFER  std::cin.ignore\
-                      (numeric_limits<streamsize>::max(), '\n')
+#define CLEAR_BUFFER std::cin.ignore\
+                     (numeric_limits<streamsize>::max(), '\n')
 
 
 int main() {
@@ -54,12 +54,13 @@ int main() {
                 cin.clear();
             CLEAR_BUFFER;
         } while (
-            inputInvalid                          or
-            precisionPower <= MIN_PRECISION_POWER or
-            precisionPower >= MAX_PRECISION_POWER
+            inputInvalid                         or
+            precisionPower < MIN_PRECISION_POWER or
+            precisionPower > MAX_PRECISION_POWER
         );
 
-        const double PRECISION = pow(10, -precisionPower);
+        const int PRECISION_POWER = precisionPower;
+        const double PRECISION    = pow(10, -PRECISION_POWER);
 
 
         // Compute PI / 2 and display the values on each step
@@ -80,18 +81,18 @@ int main() {
         do{
 
             ++iterCount;
-            long double divide      =   double(numerator) / double(denominator);
-            long double tempWallis  =   wallisTotal;
-                        wallisTotal =   divide * wallisTotal;
-                        difference  =   abs(wallisTotal - tempWallis);
+            long double oldWallisTotal  =   wallisTotal;
+                        wallisTotal     =   wallisTotal * numerator / denominator;
+                        difference      =   abs(wallisTotal - oldWallisTotal);
 
             cout << left
                  << setw(WIDTH_COL1)              << iterCount
                  << setw(WIDTH_COL2)              << numerator << "/"
                  << setw(WIDTH_COL3)              << denominator
                  << fixed
-                 << setprecision(DECIMAL_PRECISION)
+                 << setprecision(PRECISION_POWER)
                  << setw(WIDTH_COL4)              << wallisTotal
+                 << setprecision(DECIMAL_PRECISION)
                  << setw(WIDTH_COL5)              << difference
                  << endl;
 
@@ -101,12 +102,13 @@ int main() {
                 numerator   += 2;
             }
 
-        } while (difference > PRECISION);
+        } while (difference >= PRECISION);
 
 
 
-        cout << "Approx de Pi / 2 : " << wallisTotal << endl;
-        cout << "Nbre de termes   : " << iterCount <<endl;
+        cout << "Approx de Pi / 2 : "
+             << setprecision(PRECISION_POWER) << wallisTotal << endl;
+        cout << "Nbre de termes   : "         << iterCount   <<endl;
 
         // Ask the user if he wants to retry
         char retryInput;
