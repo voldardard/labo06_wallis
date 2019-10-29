@@ -27,16 +27,16 @@ using namespace std;
 int main() {
 
     // Declare constants
-    int WIDTH_COL1          = 10;
-    int WIDTH_COL2          = 10;
-    int WIDTH_COL3          = 10;
-    int WIDTH_COL4          = 10;
-    int WIDTH_COL5          = 10;
+    const int WIDTH_COL1          = 10;
+    const int WIDTH_COL2          = 10;
+    const int WIDTH_COL3          = 10;
+    const int WIDTH_COL4          = 10;
+    const int WIDTH_COL5          = 10;
 
-    int MIN_PRECISION_POWER = 0;
-    int MAX_PRECISION_POWER = 5;
+    const int MIN_PRECISION_POWER = 0;
+    const int MAX_PRECISION_POWER = 5;
 
-    int DECIMAL_PRECISION   = 5;
+    const int DECIMAL_PRECISION   = 5;
 
     bool retry;
     bool inputInvalid;
@@ -59,7 +59,7 @@ int main() {
             precisionPower >= MAX_PRECISION_POWER
         );
 
-        double PRECISION = pow(10, -precisionPower);
+        const double PRECISION = pow(10, -precisionPower);
 
 
         // Compute PI / 2 and display the values on each step
