@@ -1,1 +1,1 @@
-/usr/lib64/ccache/c++  -g   CMakeFiles/labo_06.dir/main.cpp.o  -o labo_06 
+/usr/lib64/ccache/c++  -g   CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.o  -o labo_06 

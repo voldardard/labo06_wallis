@@ -80,7 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/mbrugger/CLionProjects/labo_06/main.cpp">
+		<Unit filename="/home/mbrugger/CLionProjects/labo_06/labo_06_brugger_mathias_gallay_david.cpp">
 			<Option target="labo_06"/>
 		</Unit>
 		<Unit filename="/home/mbrugger/CLionProjects/labo_06/CMakeLists.txt">

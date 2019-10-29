@@ -57,27 +57,27 @@ include CMakeFiles/labo_06.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/labo_06.dir/flags.make
 
-CMakeFiles/labo_06.dir/main.cpp.o: CMakeFiles/labo_06.dir/flags.make
-CMakeFiles/labo_06.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mbrugger/CLionProjects/labo_06/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/labo_06.dir/main.cpp.o"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/labo_06.dir/main.cpp.o -c /home/mbrugger/CLionProjects/labo_06/main.cpp
+CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.o: CMakeFiles/labo_06.dir/flags.make
+CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.o: ../labo_06_brugger_mathias_gallay_david.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mbrugger/CLionProjects/labo_06/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.o"
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.o -c /home/mbrugger/CLionProjects/labo_06/labo_06_brugger_mathias_gallay_david.cpp
 
-CMakeFiles/labo_06.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/labo_06.dir/main.cpp.i"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mbrugger/CLionProjects/labo_06/main.cpp > CMakeFiles/labo_06.dir/main.cpp.i
+CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.i"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mbrugger/CLionProjects/labo_06/labo_06_brugger_mathias_gallay_david.cpp > CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.i
 
-CMakeFiles/labo_06.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/labo_06.dir/main.cpp.s"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mbrugger/CLionProjects/labo_06/main.cpp -o CMakeFiles/labo_06.dir/main.cpp.s
+CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.s"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mbrugger/CLionProjects/labo_06/labo_06_brugger_mathias_gallay_david.cpp -o CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.s
 
 # Object files for target labo_06
 labo_06_OBJECTS = \
-"CMakeFiles/labo_06.dir/main.cpp.o"
+"CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.o"
 
 # External object files for target labo_06
 labo_06_EXTERNAL_OBJECTS =
 
-labo_06: CMakeFiles/labo_06.dir/main.cpp.o
+labo_06: CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.o
 labo_06: CMakeFiles/labo_06.dir/build.make
 labo_06: CMakeFiles/labo_06.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mbrugger/CLionProjects/labo_06/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable labo_06"

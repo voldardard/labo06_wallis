@@ -123,32 +123,32 @@ labo_06/fast:
 	$(MAKE) -f CMakeFiles/labo_06.dir/build.make CMakeFiles/labo_06.dir/build
 .PHONY : labo_06/fast
 
-main.o: main.cpp.o
+main.o: labo_06_brugger_mathias_gallay_david.cpp.o
 
 .PHONY : main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/labo_06.dir/build.make CMakeFiles/labo_06.dir/main.cpp.o
-.PHONY : main.cpp.o
+labo_06_brugger_mathias_gallay_david.cpp.o:
+	$(MAKE) -f CMakeFiles/labo_06.dir/build.make CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.o
+.PHONY : labo_06_brugger_mathias_gallay_david.cpp.o
 
-main.i: main.cpp.i
+main.i: labo_06_brugger_mathias_gallay_david.cpp.i
 
 .PHONY : main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/labo_06.dir/build.make CMakeFiles/labo_06.dir/main.cpp.i
-.PHONY : main.cpp.i
+labo_06_brugger_mathias_gallay_david.cpp.i:
+	$(MAKE) -f CMakeFiles/labo_06.dir/build.make CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.i
+.PHONY : labo_06_brugger_mathias_gallay_david.cpp.i
 
-main.s: main.cpp.s
+main.s: labo_06_brugger_mathias_gallay_david.cpp.s
 
 .PHONY : main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/labo_06.dir/build.make CMakeFiles/labo_06.dir/main.cpp.s
-.PHONY : main.cpp.s
+labo_06_brugger_mathias_gallay_david.cpp.s:
+	$(MAKE) -f CMakeFiles/labo_06.dir/build.make CMakeFiles/labo_06.dir/labo_06_brugger_mathias_gallay_david.cpp.s
+.PHONY : labo_06_brugger_mathias_gallay_david.cpp.s
 
 # Help Target
 help:
