@@ -39,33 +39,35 @@ int main() {
     int DECIMAL_PRECISION   = 5;
 
     bool retry;
-    bool input_invalid;
+    bool inputInvalid;
     do {
         // Ask the user the precision he wants
-        int precision_power;
+        int precisionPower;
         do {
             cout << "Quelle precision "
                  << "[ 10^-"  << MIN_PRECISION_POWER
                  << ".. 10^-" << MIN_PRECISION_POWER
                  << "] : 10^-";
-            cin >>  precision_power;
-            input_invalid = cin.fail();
-            if (input_invalid)
+            cin >>  precisionPower;
+            inputInvalid = cin.fail();
+            if (inputInvalid)
                 cin.clear();
             CLEAR_BUFFER;
         } while (
-            input_invalid                          or
-            precision_power <= MIN_PRECISION_POWER or
-            precision_power >= MAX_PRECISION_POWER
+            inputInvalid                          or
+            precisionPower <= MIN_PRECISION_POWER or
+            precisionPower >= MAX_PRECISION_POWER
         );
 
-        double PRECISION = pow(10, -precision_power);
+        double PRECISION = pow(10, -precisionPower);
 
 
         // Compute PI / 2 and display the values on each step
-        cout << setw(WIDTH_COL1)                    << "No"
+        cout << left
+             << setw(WIDTH_COL1)                    << "No"
              << setw(WIDTH_COL2 + WIDTH_COL3)       << "Terme"
              << setw(WIDTH_COL4)                    << "Pi/2"
+             << right
              << setw(WIDTH_COL5)                    << "Ecart"
              << endl;
 
@@ -107,14 +109,14 @@ int main() {
         cout << "Nbre de termes   : " << iterCount <<endl;
 
         // Ask the user if he wants to retry
-        char retry_input;
-        bool input_invalid;
+        char retryInput;
+        bool inputInvalid;
         do {
-            input_invalid = false;
+            inputInvalid = false;
             cout << "Voulez-vous recommencer [o|n] : ";
-            retry_input = getchar();
+            retryInput = getchar();
             CLEAR_BUFFER;
-            switch (retry_input) {
+            switch (retryInput) {
 
                 case 'o':
                     retry = true;
@@ -123,10 +125,10 @@ int main() {
                     retry = false;
                     break;
                 default :
-                    input_invalid = true;
+                    inputInvalid = true;
 
             }
-        } while ( input_invalid );
+        } while (inputInvalid);
 
     } while(retry);
 
