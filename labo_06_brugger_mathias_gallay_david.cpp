@@ -13,9 +13,10 @@ Remarque(s) : To get the boolean retry, we don't process a verification
 
               We made the code to correspond the result shown in the pdf
               Otherwise, we would have declare oldWallisTotal in the loop.
-              Also, We display oldWallisTotal at the end for that is the value
-              even if displaying WallisTotal would be, for us, more logic.
-Compilateur : MinGW-g++ 6.3.0
+              Also, We display oldWallisTotal at the end. 
+	      That is the value shown in the pdf, even if displaying 
+	      WallisTotal would be, for us, more logic.
+Compilateur : MinGW-g++ 6.3.0 or gcc version 9.2.1
 -----------------------------------------------------------------------------------*/
 
 #include <iostream>
@@ -27,7 +28,7 @@ using namespace std;
 
 #define CLEAR_BUFFER std::cin.ignore\
                      (numeric_limits<streamsize>::max(), '\n')
-
+#define PAUSE CLEAR_BUFFER
 
 int main() {
 
@@ -67,14 +68,13 @@ int main() {
         const int PRECISION_POWER = precisionPower;
         const double PRECISION    = pow(10, -PRECISION_POWER);
 
-
         // Compute PI / 2 and display the values on each step
         cout << left
-             << setw(WIDTH_COL1)              << "No"
-             << setw(WIDTH_COL2 + WIDTH_COL3) << "Terme"
-             << setw(WIDTH_COL4)              << "Pi/2"
+             << setw(WIDTH_COL1)		<< "No"
+             << setw(WIDTH_COL2 + WIDTH_COL3)	<< "Terme"
+             << setw(WIDTH_COL4)		<< "Pi/2"
              << right
-             << setw(WIDTH_COL5)              << "Ecart"
+             << setw(WIDTH_COL5)		<< "Ecart"
              << endl;
 
         int         numerator       = 2,
@@ -83,7 +83,6 @@ int main() {
         long double wallisTotal     = double(numerator) / double(denominator);
         long double oldWallisTotal  = wallisTotal;
         long double difference      = abs(wallisTotal - oldWallisTotal);
-
 
         do{
             // Display current step's values
@@ -110,15 +109,12 @@ int main() {
             wallisTotal     =   wallisTotal * numerator / denominator;
             difference      =   abs(wallisTotal - oldWallisTotal);
 
-
-
         } while (difference >= PRECISION);
-
 
         // Display the result
         cout << "Approx de Pi / 2 : "
              << setprecision(PRECISION_POWER) << oldWallisTotal << endl;
-        cout << "Nbre de termes   : "         << iterCount   <<endl;
+        cout << "Nbre de termes   : "         << iterCount   	<<endl;
 
         // Ask the user if he wants to retry
         char retryInput;
@@ -129,7 +125,6 @@ int main() {
             retryInput = getchar();
             CLEAR_BUFFER;
             switch (retryInput) {
-
                 case 'o':
                     retry = true;
                     break;
@@ -138,12 +133,11 @@ int main() {
                     break;
                 default :
                     inputInvalid = true;
-
             }
         } while (inputInvalid);
 
     } while(retry);
 
-
-    return 0;
+    PAUSE;
+    return EXIT_SUCCESS;
 }
