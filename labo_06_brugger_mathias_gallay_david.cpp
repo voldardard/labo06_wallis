@@ -10,6 +10,11 @@ But         : Ask the user for the precision he wants for PI / 2
               the wallis formula
 Remarque(s) : To get the boolean retry, we don't process a verification
               on read failure since we try to get a char.
+
+              We made the code to correspond the result shown in the pdf
+              Otherwise, we would have declare oldWallisTotal in the loop.
+              Also, We display oldWallisTotal at the end for that is the value
+              even if displaying WallisTotal would be, for us, more logic.
 Compilateur : MinGW-g++ 6.3.0
 -----------------------------------------------------------------------------------*/
 
@@ -65,26 +70,23 @@ int main() {
 
         // Compute PI / 2 and display the values on each step
         cout << left
-             << setw(WIDTH_COL1)                    << "No"
-             << setw(WIDTH_COL2 + WIDTH_COL3)       << "Terme"
-             << setw(WIDTH_COL4)                    << "Pi/2"
+             << setw(WIDTH_COL1)              << "No"
+             << setw(WIDTH_COL2 + WIDTH_COL3) << "Terme"
+             << setw(WIDTH_COL4)              << "Pi/2"
              << right
-             << setw(WIDTH_COL5)                    << "Ecart"
+             << setw(WIDTH_COL5)              << "Ecart"
              << endl;
 
-        int         numerator   = 2,
-                    denominator = 1;
-        int         iterCount   = 0;
-        long double wallisTotal = 1.L;
-        long double difference;
+        int         numerator       = 2,
+                    denominator     = 1;
+        int         iterCount       = 1;
+        long double wallisTotal     = double(numerator) / double(denominator);
+        long double oldWallisTotal  = wallisTotal;
+        long double difference      = abs(wallisTotal - oldWallisTotal);
+
 
         do{
-
-            ++iterCount;
-            long double oldWallisTotal  =   wallisTotal;
-                        wallisTotal     =   wallisTotal * numerator / denominator;
-                        difference      =   abs(wallisTotal - oldWallisTotal);
-
+            // Display current step's values
             cout << left
                  << setw(WIDTH_COL1)              << iterCount
                  << setw(WIDTH_COL2)              << numerator << "/"
@@ -96,18 +98,26 @@ int main() {
                  << setw(WIDTH_COL5)              << difference
                  << endl;
 
+            // Update Values
+            ++iterCount;
             if ( numerator > denominator ) {
                 denominator += 2;
             } else {
                 numerator   += 2;
             }
 
+            oldWallisTotal  =   wallisTotal;
+            wallisTotal     =   wallisTotal * numerator / denominator;
+            difference      =   abs(wallisTotal - oldWallisTotal);
+
+
+
         } while (difference >= PRECISION);
 
 
-
+        // Display the result
         cout << "Approx de Pi / 2 : "
-             << setprecision(PRECISION_POWER) << wallisTotal << endl;
+             << setprecision(PRECISION_POWER) << oldWallisTotal << endl;
         cout << "Nbre de termes   : "         << iterCount   <<endl;
 
         // Ask the user if he wants to retry
